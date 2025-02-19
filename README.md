@@ -189,7 +189,7 @@ Below are the API request types and sample URLs:
 <img width="1508" alt="Image" src="https://github.com/user-attachments/assets/a0e83537-4e76-48d9-8f29-9e7815432a4e" />
 <br>
 
-## Creating A Simple HTTP Trigger Azure Function (Alternative Learning)
+## Creating A Simple HTTP Trigger Azure Function From Scratch (Alternative Learning)
 ### 1. **Install Azure CLI**
    [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
 
