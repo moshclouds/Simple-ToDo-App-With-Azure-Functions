@@ -40,7 +40,7 @@ jobs:
       #     publish-profile: ${{ secrets.AZURE_FUNCTION_PUBLISH_PROFILE }}
 
       - name: Deploy to Azure Functions
-        run: func azure functionapp publish ${{ secrets.AZURE_FUNCTIONAPP_NAME }}
+        run: func azure functionapp publish noob-functions
         env:
           AZURE_FUNCTIONAPP_NAME: ${{ secrets.AZURE_FUNCTION_APP_NAME }}
           AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
