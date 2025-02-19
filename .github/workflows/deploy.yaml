@@ -9,9 +9,13 @@ permissions:
   id-token: write
   contents: read
 
+env:
+ AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' 
+
 jobs:
   deploy:
     name: Deploy to Azure Functions
+    # runs-on: ubuntu-latest
     runs-on: windows-latest
 
     steps:
@@ -23,20 +27,27 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependencies
-        run: npm install
+      # - name: Install dependencies
+      #   run: npm install
+
+      - name: 'Resolve Project Dependencies Using Npm'
+        shell: pwsh
+        run: |
+          pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+          npm install
+          popd
 
       # - name: Archive production artifacts
       #   run: zip -r functionapp.zip . -x '*.git*'
 
-      - name: Archive production artifacts
-        run: |
-          # Ensure the ZIP command is excluding unnecessary files like `.git`
-          powershell Compress-Archive -Path * -DestinationPath functionapp.zip -Force
+      # - name: Archive production artifacts
+      #   run: |
+      #     powershell Compress-Archive -Path * -DestinationPath functionapp.zip -Force
 
       - name: Deploy to Azure Functions
         uses: azure/functions-action@v1
         with:
           app-name: ${{ secrets.AZURE_FUNCTION_APP_NAME }}
-          package: functionapp.zip
+          # package: functionapp.zip
+          package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
           publish-profile: ${{ secrets.AZURE_CREDENTIALS }}
