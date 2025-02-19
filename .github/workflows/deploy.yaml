@@ -29,18 +29,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # - name: Archive production artifacts
-      #   run: zip -r functionapp.zip . -x '*.git*'
-
-      # - name: Deploy to Azure Functions
-      #   uses: azure/functions-action@v1
-      #   with:
-      #     app-name: ${{ secrets.AZURE_FUNCTION_APP_NAME }}
-      #     package: functionapp.zip
-      #     publish-profile: ${{ secrets.AZURE_FUNCTION_PUBLISH_PROFILE }}
+      - name: Archive production artifacts
+        run: zip -r functionapp.zip . -x '*.git*'
 
       - name: Deploy to Azure Functions
-        run: func azure functionapp publish noob-functions
-        env:
-          AZURE_FUNCTIONAPP_NAME: ${{ secrets.AZURE_FUNCTION_APP_NAME }}
-          AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+        uses: azure/functions-action@v1
+        with:
+          app-name: ${{ secrets.AZURE_FUNCTION_APP_NAME }}
+          package: functionapp.zip
+          publish-profile: ${{ secrets.AZURE_CREDENTIALS }}
+
+      # - name: Deploy to Azure Functions
+      #   run: func azure functionapp publish noob-functions
+      #   env:
+      #     AZURE_FUNCTIONAPP_NAME: ${{ secrets.AZURE_FUNCTION_APP_NAME }}
+      #     AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
