@@ -15,6 +15,12 @@ async function getTodos() {
     return todos;
 }
 
+// READ: Get a specific todo by ID
+async function getTodoById(id) {
+    const todo = await Todo.findById(id);
+    return todo;
+}
+
 // UPDATE: Update a todo by id
 async function updateTodo(id, updatedTodo) {
     console.log(id)
@@ -31,6 +37,7 @@ async function deleteTodo(id) {
 module.exports = {
     createTodo,
     getTodos,
+    getTodoById,
     updateTodo,
     deleteTodo
 };

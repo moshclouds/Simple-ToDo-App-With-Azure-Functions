@@ -1,5 +1,7 @@
 
-# Simple Azure Functions To-Do App
+# Simple Azure Functions Todo App
+
+<img width="960" alt="Image" src="https://github.com/user-attachments/assets/4855da33-2410-4c3c-9490-75f7a5a6e577" />
 
 This repository contains an Azure Functions application that performs CRUD operations for a To-Do list. The app is backed by MongoDB and deployed to Azure.
 
@@ -55,6 +57,7 @@ Below are the API request types and sample URLs:
 |-------------------------|----------------------------------------|------------------|----------------------------------------------|
 | **Create Todo**          | `https://noob-functions.azurewebsites.net/api/create-todo-function`                      | `POST`           | Creates a new To-Do entry.                   |
 | **Get Todos**            | `https://noob-functions.azurewebsites.net/api/get-todos-function`                       | `GET`            | Retrieves all To-Do entries.                 |
+| **Get Todo**            | `https://noob-functions.azurewebsites.net/api/get-todo-function`                       | `GET`            | Retrieves Specific To-Do entries.                 |
 | **Update Todo**          | `https://noob-functions.azurewebsites.net/api/update-todo-function?id=67b5bc9238c337c4de6f9bfa`                  | `PUT`            | Updates a specific To-Do entry by ID.        |
 | **Delete Todo**          | `https://noob-functions.azurewebsites.net/api/delete-todo-function?id=67b5bc9238c337c4de6f9bfa`               | `DELETE`         | Deletes a specific To-Do entry by ID.        |
 
@@ -181,6 +184,11 @@ Below are the API request types and sample URLs:
   "code": 404
 }
 ```
+## Proofs Of Created Resources
+
+<img width="1508" alt="Image" src="https://github.com/user-attachments/assets/a0e83537-4e76-48d9-8f29-9e7815432a4e" />
+<br>
+
 ## Creating A Simple HTTP Trigger Azure Function (Alternative Learning)
 ### 1. **Install Azure CLI**
    [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)

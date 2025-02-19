@@ -3,7 +3,7 @@ name: Deploy Azure Functions
 on:
   push:
     branches:
-      - master
+      - nothing
 
 permissions:
   id-token: write
